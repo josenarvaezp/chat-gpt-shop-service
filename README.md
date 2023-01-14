@@ -1,6 +1,6 @@
 # Shop Service
 
-Most of this service (including this readme) was writen by chatGPT using this conversation: [chatGPT conversation](https://github.com/josenarvaezp/chat-gpt-shop-service/chatgpt-conversation.md). The changes made to chatGPT's output can be found here: [changes log](https://github.com/josenarvaezp/chat-gpt-shop-service/changes-log.md).
+Most of this service (including this readme) was writen by chatGPT using this conversation: [chatGPT conversation](https://github.com/josenarvaezp/chat-gpt-shop-service/blob/master/chatgpt-conversation.md). The changes made to chatGPT's output can be found here: [changes log](https://github.com/josenarvaezp/chat-gpt-shop-service/blob/master/changes-log.md).
 
 This is the README file for the Shop service. The Shop service is a gRPC service that allows clients to list and get the color of bananas.
 
