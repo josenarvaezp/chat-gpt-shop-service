@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// not added by chatgpt
+option go_package = "github.com/josenarvaezp/chat-gpt-shop-service/proto";
+
+service Shop {
+    rpc ListBananas(ListBananasRequest) returns (ListBananasResponse);
+    rpc GetBananaColor(GetBananaColorRequest) returns (GetBananaColorResponse);
+}
+
+message ListBananasRequest {
+    int32 size = 1;
+}
+
+message ListBananasResponse {
+    repeated Banana bananas = 1;
+}
+
+message GetBananaColorRequest {
+    string banana_id = 1;
+}
+
+message GetBananaColorResponse {
+    string color = 1;
+}
+
+message Banana {
+    string id = 1;
+    string color = 2;
+}
