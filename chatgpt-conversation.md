@@ -346,3 +346,52 @@ You can also check the help command of the cli by running the command ./shop-cli
 ```
 
 Please note that this is just an example, you may have different ways of running the service and interacting with it, you should adjust the commands and instructions according to your specific implementation.
+
+## Query 8
+```
+write unit tests for the go code
+```
+
+Response:
+```
+package main
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestListBananas(t *testing.T) {
+	server := &server{}
+
+	// Test case: List 2 bananas
+	response, err := server.ListBananas(context.Background(), &ListBananasRequest{Size: 2})
+	assert.Nil(t, err)
+	assert.Len(t, response.Bananas, 2)
+
+	// Test case: List 0 bananas
+	response, err = server.ListBananas(context.Background(), &ListBananasRequest{Size: 0})
+	assert.Nil(t, err)
+	assert.Len(t, response.Bananas, 0)
+
+	// Test case: List more bananas than available
+	response, err = server.ListBananas(context.Background(), &ListBananasRequest{Size: 10})
+	assert.Nil(t, err)
+	assert.Len(t, response.Bananas, len(bananas))
+}
+
+func TestGetBananaColor(t *testing.T) {
+	server := &server{}
+
+	// Test case: Get color of banana with ID 1
+	response, err := server.GetBananaColor(context.Background(), &GetBananaColorRequest{BananaId: "1"})
+	assert.Nil(t, err)
+	assert.Equal(t, "Yellow", response.Color)
+
+	// Test case: Get color of banana with non-existing ID
+	_, err = server.GetBananaColor(context.Background(), &GetBananaColorRequest{BananaId: "10"})
+	assert.NotNil(t, err)
+	assert.Equal(t, "Banana not found", err.Error())
+}
+```
